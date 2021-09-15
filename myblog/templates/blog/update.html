@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}Actualizar una publicación {% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <label for="title">Título</label>
+        <input type="text" name="title" id="title" value="{{ post.title }}" required>
+        <label for="body">Contenido</label>
+        <textarea name="body" id="body" cols="30" rows="10">{{ post.body }}</textarea>
+        <input type="submit", value="Guardar">
+    </form>
+{% endblock %}

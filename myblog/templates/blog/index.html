@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}Publicaciones {% endblock %}</h2>
+    {% if g.user %}
+        <a href="{{ url_for('blog.create') }}">Nueva Publicación</a>
+    {% endif%}
+{% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+    <article>
+        <header>
+            <div>
+               <h1>{{ post.title }}</h1>
+                <div>
+                    Publicado por {{ get_user(post.author).username}}
+                    el {{ post.created.strftime('%Y-%m-%d') }}
+                </div> 
+            </div>
+            <div>
+                {% if g.user.id == post.author %}
+                    <a href="{{ url_for('blog.update', id=post.id) }}">Editar</a>
+                    <a href="{{ url_for('blog.delete', id=post.id) }}">Eliminar</a>
+                {% endif %}
+            </div>
+        </header>
+        <div>
+            <p>{{ post.body }}</p>
+        </div>
+    </article>
+{% endfor %}
+
+{% endblock %}
