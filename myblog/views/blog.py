@@ -23,6 +23,7 @@ def get_user(id):
 @blog.route("/")
 def index():
     posts = Post.query.all()
+    posts = list(reversed(posts))
     db.session.commit()
     return render_template('blog/index.html', posts = posts, get_user=get_user)
 

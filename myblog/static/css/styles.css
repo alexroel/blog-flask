@@ -1,0 +1,126 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.header{
+    background-color: #377ba8;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.nav a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav nav a{
+    margin: 0 10px;
+}
+
+.nav nav span{
+    margin: 0 10px 0 0;
+    color: #ccc;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+/*Content*/
+.content{
+    max-width: 85%;
+    margin: 10px auto;
+}
+
+.content header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/* Mensaje de Flahs*/
+.flash{
+    background-color: #0c950c;
+    color: #fff;
+    padding: 10px;
+}
+
+/*Index - Publicaciones*/
+article{
+    padding: 10px 0;
+}
+
+article header{
+    margin: 10px 0;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+}
+
+article header h1{
+    font-size: 26px;
+}
+
+article header .about{
+    font-style: italic;
+    color: #707070;
+    font-size: 18px;
+}
+
+/*Formularios*/
+form{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+form label, input, textarea{
+    font-weight: 500;
+    margin: 5px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    padding: 10px; 
+}
+
+form input[type=submit]{
+    align-self: start;
+    min-width: 200px;
+}
+
+/* LOGIN*/
+.login{
+    max-width: 30%;
+    margin: 0 auto;
+}
+
+.login input[type=submit]{
+    margin: 10px 0;
+    min-width: 100%;
+    background-color: #377ba8;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.login input[type=submit]:hover{
+    background-color: #2c6c97;
+    cursor: pointer;
+}

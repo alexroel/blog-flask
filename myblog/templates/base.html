@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/blog.ico')}}" type="image/x-icon">
+    
     <title>{% block title %}{% endblock %}-Myblog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
 </head>
 <body>
-    <header>
-        <div>
-            <a href="{{ url_for('blog.index') }}">
-               <h1>MyBlog</h1>  
-            </a>
+    <header class="header">
+        <div class="nav">
+                <div>
+                <a href="{{ url_for('blog.index') }}">
+                <h1>MyBlog</h1>  
+                </a>
+            </div>
+            <nav>
+                {% if g.user %}
+                <img src="{{ url_for('static', filename='img/user.png')}}" alt="">
+                <span>{{ g.user.username }}</span>
+                <a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a>
+                {% else %}
+                <a href="{{ url_for('auth.register') }}">Registrar Usuario</a>
+                <a href="{{ url_for('auth.login') }}">Iniciar Sesión</a>
+                {% endif %}
+            </nav>
         </div>
-        <nav>
-            {% if g.user %}
-            <samp>{{ g.user.username }}</samp>
-            <a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a>
-            {% else %}
-            <a href="{{ url_for('auth.register') }}">Registrar Usuario</a>
-            <a href="{{ url_for('auth.login') }}">Iniciar Sesión</a>
-            {% endif %}
-        </nav>
+        
     </header>
 
     <section>
-        <header>{% block header %}{% endblock %}</header>
+        <div class="content">
+            <header>{% block header %}{% endblock %}</header>
 
-        {% for message in get_flashed_messages() %}
-        <div> {{ message }}</div>
-        {% endfor %}
+            {% for message in get_flashed_messages() %}
+            <div class="flash"> {{ message }}</div>
+            {% endfor %}
 
-        {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+        
     </section>
 </body>
 </html>
